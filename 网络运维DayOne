@@ -1,0 +1,37 @@
+一，虚拟机
+概念：虚拟机是运行在计算机上的一款软件程序，模拟计算机硬件功能为其他软件程序提供一个独立的计算机环境。
+虚拟机产品：
+1）.Vmwarm
+VMware Workstation （寄居）
+VMware vSphere （原生）
+2）微软 
+Virtual PC
+Virtual Server
+Hyper-V 
+3）RedHat
+KVM
+RHEV
+4）Oracle
+VM VirtualBox
+5）Citrix（思杰） 
+XenDesktop 
+XenServer 
+二、操作系统概述
+1、操作系统
+一种计算机软件，为应用软件提供访问计算机硬件的服务，提供有效的硬件、软件管理
+2、常见的操作系统
+Windows
+UNIX
+Linux:
+Mac OS:
+MS-DOS
+3、Windows10系统的硬件要求
+CPU处理器：1.0Ghz或更快
+启动内存：2GB（64位）
+硬盘空间：不少于20GB（64位），建议100GB及以上
+三、虚拟机运行模式 
+1）寄居架构 
+作为应用软件安装在操作系统上 ，可以在此应用软件上安装多个操作系统 
+2）原生架构 
+虚拟机软件直接安装在计算机硬件上 
+虚拟机本身就是一个操作系统 
