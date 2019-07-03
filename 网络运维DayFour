@@ -1,0 +1,82 @@
+HUWEI eSNP模拟器
+一、命令行配置命令
+1、视图模式
+<Huawei>用户视图
+<Huawei>system-view 
+[Huawei]系统视图
+[Huawei]interface GigabitEthernet 0/0/1
+[Huawei-GigabitEthernet0/0/1]接口视图
+quit返回上一视图
+return直接退到用户视图
+或ctrl+z
+? 查询
+Tab补全
+命令简写
+2、命令行基本操作
+<Huawei>display version(查看系统版本)
+[Huawei]sysname Switch(修改主机名)
+<Huawei>save保存当前配置
+ <Switch>display current-configuration（查看配置信息）
+3、接口关闭与开启
+[Switch-GigabitEthernet0/0/1]shutdown（关闭接口）
+[Switch-GigabitEthernet0/0/1]undo shutdown（开启接口）
+4、设置终端密码：
+[Switch]user-interface console 0
+[Switch-ui-console0]set authentication password cipher huawei123 [Switch-ui-console0]authentication-mode password
+5、更改自动退出超时:
+[Switch-ui-console0]idle-timeout 60
+6、恢复出厂默认
+1）<Huawei>reset saved-configuration
+提示是否恢复选Y
+2）< Huawei > reboot
+提示是否保存选N
+提示是否重启选Y
+二、路由器
+1、路由器转发数据包的依据是路由表
+2、原理：
+路由器接到数据包，检查数据包的目标IP地址，再在路由表中查找到达目标的路线，并选择最佳路线按照最佳路线转发数据包。
+3、配置路由器的接口IP地址
+[Router]interface GigabitEthernet 0/0/0
+[Router-GigabitEthernet0/0/0]ip address 192.168.1.254 24
+
+<Router>display ip routing-table(查看路由表)
+课程随笔：
+<Huawei>用户视图
+<Huawei>system-view 
+[Huawei]系统视图
+[Huawei]interface GigabitEthernet 0/0/1
+[Huawei-GigabitEthernet0/0/1]接口视图
+[Huawei]interface Ethernet 0/0/10
+[Huawei-Ethernet0/0/10]
+quit返回上一视图
+return直接返回用户视图
+ctrl+z
+？查询
+Tab补全
+命令简写
+基本命令
+<Huawei>display version查看ＶＲＰ系统版本
+[Huawei]sysname Switch修改主机名
+<Switch>display current-configuration查看配置信息
+配置进入用户视图的明文密码
+[Switch]user-interface console 0
+[Switch-ui-console0]authentication-mode password 
+[Switch-ui-console0]set authentication  password simple 123
+配置进入用户视图的密文密码
+[Switch]user-interface console 0
+[Switch-ui-console0]authentication-mode password 
+[Switch-ui-console0]set authentication  password cipher 123
+关闭终端显示提示信息：
+<Switch>undo terminal monitor
+配置自动退出超时
+[Switch]user-interface console 0
+[Switch-ui-console0]idle-timeout 1440
+<S1>save保存
+<S1>reboot重启
+恢复出厂默认
+<S1>reset saved-configuration
+<S1>reboot
+先输n不保存，再输y重启
+[Huawei]interface GigabitEthernet 0/0/2
+[Huawei-GigabitEthernet0/0/2]shutdown关闭接口
+[Huawei-GigabitEthernet0/0/2]undo shutdown开启接口
