@@ -80,3 +80,16 @@ Tab补全
 [Huawei]interface GigabitEthernet 0/0/2
 [Huawei-GigabitEthernet0/0/2]shutdown关闭接口
 [Huawei-GigabitEthernet0/0/2]undo shutdown开启接口
+4、配置交换机的管理IP
+[Huawei]interface Vlanif 1
+[Huawei-Vlanif1]ip address 192.168.1.100 24
+[Huawei-Vlanif1]undo shutdown
+
+5、远程管理路由器
+Huawei]user-interface vty 0 4
+ [Huawei-ui-vty0-4]user privilege level 3
+ [Huawei-ui-vty0-4]authentication-mode aaa
+[Huawei-ui-vty0-4]aaa
+ [Huawei-aaa]local-user ntdhn password cipher 123
+[Huawei-aaa]local-user ntdhn service-type telnet
+telnet 192.168.1.254
