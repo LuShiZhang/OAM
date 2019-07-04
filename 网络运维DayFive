@@ -1,0 +1,81 @@
+一、互联网==》超级云网
+云计算==一种向客户提供资源的方式
+二、云用户准备
+1. 电脑或手机访问 huaweicloud.com  注册一个华为云用户
+2. 以华为云用户登录
+1）通过实名认证（绑银行卡，或者上传身份证照片信息）
+2）需要充值
+3. 访问控制台，查看“弹性云服务器”
+4. 检查是否有ECS服务器免费试用机会
+如果有，申请试用（操作系统选CentOS 7.4）
+Linux服务器系统的管理账号 root
+
+三、选购一台ECS云服务器
+1. 可用区（华为机房）、付费模式
+2. 硬件配置（CPU、内存、硬盘）
+3. 独享带宽配置（按流量）
+4. 镜像选择（操作系统 CentOS 7.4 x64）
+5. 安全组（防火墙策略，开放 80、22端口）
+6. 登录密码（用户 root，密码自定义，比如 tedu.cn1234）
+7. 确认配置、接受协议、提交申请
+8. 查看“控制台”--》“弹性云服务器”界面
+9. 检查这台ECS服务器的公有IP地址（比如114.116.72.168）
+10. 练习针对云服务器的开关机、重装操作系统等基本操作
+四、常见的远程管理协议：
+Telnet —— TCP 23端口【路由器、交换机】
+SSH —— TCP 22端口【Linux服务器、防火墙】
+RDP —— TCP3389端口 【Windows服务器】
+
+五：云服务器的远程登录
+前提条件：
+知道正确的IP地址、用户名、密码、
+方式1【推荐】：专门的SSH客户端软件
+1）安装SecureCRT软件
+2）通过SecureCRT连接ECS服务器，确认可成功登录
+方式2：云服务器Web控制台“远程登录”
+
+==> [root@svr1 ~]#   类似于系统视图
+
+六、Linux命令行体验
+1）查看设备名
+# hostname
+2）查看IP地址
+# ifconfig
+3）执行ping测试
+# ping   www.baidu.com  	【Ctrl + c中断】
+4）退出命令行环境
+# exit
+5）重启服务器
+# reboot
+
+七、在ECS服务器上搭建网站服务器
+1）装包 httpd
+# yum  install  httpd
+2）起服务 httpd
+# systemctl   start   httpd 	【stop/restart/status】
+3）部署网页资源（/var/www/html/）
+使用现成的网页 —— testweb.zip压缩包内的muban1目录下
+通过WinSCP软件上传网页
+课堂随笔
+<Huawei>display ip routing-table查看路由表
+配置交换机管理ＩＰ
+[Huawei]interface Vlanif 1
+[Huawei-Vlanif1]ip address 192.168.1.100 24
+[Huawei-Vlanif1]undo shutdown 
+配置远管理：
+[Huawei]user-interface vty 0 4定义远程管理的终端个数
+[Huawei-ui-vty0-4]user privilege level 3用户登录级别
+[Huawei-ui-vty0-4]authentication-mode aaa启用AAA认证
+[Huawei-ui-vty0-4]aaa进入AAA视图
+[Huawei-aaa]local-user ntd1906 password cipher 123定义远管理的用户名及密码
+[Huawei-aaa]local-user ntd1906 service-type telnet定义通过telnet协议远程管理
+
+telnet 192.168.1.254
+
+yum -y install httpd安装httpd软件包
+systemctl restart httpd启动httpd服务
+
+通过WinSCP工具将准备好的网页资料上传到云服务器
+注意目标位置 /var/www/html/ 目录 
+
+云服务端开启80端口
